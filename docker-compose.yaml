@@ -2,9 +2,10 @@ services:
   jenkins:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: app/Dockerfile
     image: jenkins_devops
     container_name: jenkins-devops
+    pull_policy: always
     privileged: false
     user: jenkins
     restart: no
