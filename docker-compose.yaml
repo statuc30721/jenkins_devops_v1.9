@@ -1,0 +1,23 @@
+services:
+  jenkins:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: jenkins_devops
+    container_name: jenkins-devops
+    privileged: false
+    user: jenkins
+    restart: no
+    environment:
+      - JENKINS_HOME=/var/jenkins_home
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - jenkins_home:/var/jenkins_home
+
+volumes:
+  jenkins_home:
+    name: jenkins_devops
+
+
